@@ -28,9 +28,9 @@ Target "Clean" (fun _ ->
     CleanDirs [deployDir]
 )
 
-//Target "InstallDotNetCore" (fun _ ->
-//    dotnetCli <- DotNetCli.InstallDotNetSDK dotnetcliVersion
-//)
+Target "InstallDotNetCore" (fun _ ->
+    dotnetCli <- DotNetCli.InstallDotNetSDK dotnetcliVersion
+)
 
 Target "InstallClient" (fun _ ->
     printfn "Node version:"
@@ -59,7 +59,7 @@ Target "Run" (fun () ->
     }
     let browser = async {
         Threading.Thread.Sleep 5000
-        Diagnostics.Process.Start "http://localhost:8080" |> ignore
+        Diagnostics.Process.Start "http://127.0.0.1:8080" |> ignore
     }
 
     [ server; client; browser ]
@@ -69,7 +69,7 @@ Target "Run" (fun () ->
 )
 
 "Clean"
-    //==> "InstallDotNetCore"
+    ==> "InstallDotNetCore"
     ==> "InstallClient"
     ==> "Build"
 

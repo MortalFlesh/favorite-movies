@@ -5,6 +5,11 @@
         "php": "^7.1.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/doctrine-bundle": "^1.9",
+        "doctrine/orm": "^2.6",
+        "mf/collections-php": "^3.7",
+        "overblog/graphiql-bundle": "^0.1.1",
+        "overblog/graphql-bundle": "^0.11.3",
         "symfony/console": "^4.1",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^4.1",
@@ -12,7 +17,13 @@
         "symfony/yaml": "^4.1"
     },
     "require-dev": {
-        "symfony/dotenv": "^4.1"
+        "lmc/coding-standard": "^1.1",
+        "php-coveralls/php-coveralls": "^2.1",
+        "phpstan/phpstan-shim": "^0.10.1",
+        "phpunit/phpunit": "^7.2",
+        "symfony/dotenv": "^4.1",
+        "symfony/var-dumper": "^4.1",
+        "symfony/web-server-bundle": "^4.1"
     },
     "config": {
         "preferred-install": {
@@ -22,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "MF\\FavoriteMovies\\GraphQL\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "MF\\FavoriteMovies\\GraphQL\\": "tests/"
         }
     },
     "replace": {
@@ -47,7 +58,20 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "all": [
+            "@analyze",
+            "@tests"
+        ],
+        "analyze": [
+            "@cs",
+            "@phpstan"
+        ],
+        "phpstan": "vendor/bin/phpstan analyze ./src ./tests -c phpstan.neon --ansi --level 7",
+        "tests": "vendor/bin/phpunit",
+        "tests-ci": "mkdir -p reports && php -dxdebug.coverage_enable=1 vendor/bin/phpunit -c phpunit.xml.dist",
+        "cs": "vendor/bin/ecs check -vvv --ansi src/ tests/",
+        "fix": "vendor/bin/ecs check -vvv --ansi --clear-cache --fix src/ tests/"
     },
     "conflict": {
         "symfony/symfony": "*"

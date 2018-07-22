@@ -139,7 +139,7 @@ class Movie
      * @param Collection|Type[] $types
      * @param Collection|Related[] $related
      * @param Collection|Similar[] $similars
-     * @param Collection|Tag[] $tagss
+     * @param Collection|Tag[] $tags
      */
     public function __construct(
         string $title,

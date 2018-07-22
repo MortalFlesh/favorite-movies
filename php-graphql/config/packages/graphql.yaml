@@ -1,11 +1,20 @@
 overblog_graphql:
     definitions:
-        schema:
-            query: Query
+
+        # mappings
+        auto_mapping: false # use autowiring
         mappings:
             auto_discover: false
             types:
                 -
-                    type: yaml
-                    dir: "%kernel.project_dir%/config/graphql/types"
-                    suffix: ~
+                    type: graphql
+                    dir: '%kernel.project_dir%/config/graphql'
+                    suffix: ''
+
+        # schemas
+        schema:
+            movie:
+                query: MovieQuery
+                #mutation: WidgetMutation
+                resolver_maps:
+                    - MF\FavoriteMovies\GraphQL\Resolver\MovieResolverMap

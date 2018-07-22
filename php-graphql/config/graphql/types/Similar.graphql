@@ -1,0 +1,8 @@
+type Similar {
+    id: Int!
+    link: String!
+    movie: Movie
+    title: String!
+    type: String
+    year: Int!
+}

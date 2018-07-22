@@ -1,0 +1,5 @@
+type Nation {
+    id: Int!
+    value: String!
+    movies: [Movie!]!
+}

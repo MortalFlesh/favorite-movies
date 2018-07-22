@@ -1,0 +1,24 @@
+type Movie {
+    id: Int!
+    duration: Int!
+    link: String!
+    my_stars: Int
+    premiere_date: String
+    private_message: String
+    rating: Int!
+    ratings_count: Int!
+    title: String!
+    year: Int!
+    actors: [Actor!]!
+    alt_titles: [Alt_title!]!
+    directors: [Director!]!
+    friend_ratings: [Friend_rating!]!
+    genres: [Genre!]!
+    nations: [Nation!]!
+    others: [Other!]!
+    premieres: [Premiere!]!
+    relateds: [Related!]!
+    similars: [Similar!]!
+    tags: [Tag!]!
+    types: [Type!]!
+}

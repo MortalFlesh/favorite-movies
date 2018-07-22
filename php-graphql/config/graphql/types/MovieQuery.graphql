@@ -1,0 +1,7 @@
+type MovieQuery {
+    movie(
+        id: String!
+        gaId: String
+        referer: String
+    ): Movie!
+}

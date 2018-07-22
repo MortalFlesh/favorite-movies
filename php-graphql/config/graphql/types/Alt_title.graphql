@@ -1,0 +1,6 @@
+type Alt_title {
+    id: Int!
+    flag: String!
+    movie: Movie
+    title: String!
+}

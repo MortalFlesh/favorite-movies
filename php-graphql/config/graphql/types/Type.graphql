@@ -1,0 +1,5 @@
+type Type {
+    id: Int!
+    value: String!
+    movies: [Movie!]!
+}

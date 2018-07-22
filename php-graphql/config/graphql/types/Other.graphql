@@ -1,0 +1,5 @@
+type Other {
+    id: Int!
+    movie: Movie
+    value: String!
+}

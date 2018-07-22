@@ -1,0 +1,6 @@
+type Premiere {
+    id: Int!
+    date: String!
+    movie: Movie
+    nation: String!
+}

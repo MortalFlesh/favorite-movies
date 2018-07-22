@@ -1,0 +1,6 @@
+type Tag {
+    id: Int!
+    link: String!
+    title: String!
+    movies: [Movie!]!
+}

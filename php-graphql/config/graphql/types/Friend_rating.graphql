@@ -1,0 +1,6 @@
+type Friend_rating {
+    id: Int!
+    movie: Movie
+    name: String!
+    stars: Int!
+}
